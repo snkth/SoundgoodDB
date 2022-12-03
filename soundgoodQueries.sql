@@ -1,6 +1,6 @@
 SELECT
-
-	TO_CHAR(school_activity.date_and_time, 'Month') AS month,
+	
+	EXTRACT(month FROM school_activity.date_and_time) AS month_number,
 
 	COUNT(school_activity.activity_type_id) AS total_lessons,
 	
@@ -17,6 +17,6 @@ SELECT
 		AS ensamble
 	
 FROM school_activity
-GROUP BY month
-ORDER BY month;
+GROUP BY month_number
+ORDER BY month_number ASC;
 
