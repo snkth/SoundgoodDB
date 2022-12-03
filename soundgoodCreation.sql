@@ -88,7 +88,7 @@ CREATE TABLE "school_activity"
 (
   "school_activity_id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "instructor_id" int NOT NULL REFERENCES "instructor",
-  "activity_type_id" int NOT NULL REFERENCES "instructor",
+  "activity_type_id" int NOT NULL REFERENCES "activity_type",
   "genre_id" int REFERENCES "genre" ON DELETE CASCADE,
   "skill_level_id" int NOT NULL REFERENCES "skill_level",
   "activity_fee_id" int NOT NULL REFERENCES "activity_fee",

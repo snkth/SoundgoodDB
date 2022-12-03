@@ -92,10 +92,17 @@ VALUES
 
 INSERT INTO school_activity (instructor_id,skill_level_id,activity_type_id,genre_id,activity_fee_id,instructor_payment_id,date_and_time,duration_in_minutes)
 VALUES
-  (1,1,2,NULL,2,2,'2022-12-20 17:30:00',90),
-  (1,2,2,NULL,5,5,'2022-12-16 15:00:00',120),
-  (2,3,1,NULL,7,7,'2022-12-12 12:00:00',80),
-  (2,1,1,NULL,1,1,'2022-12-08 17:00:00',60);
+  (1,1,1,NULL,2,2,'2022-01-20 17:30:00',90),
+  (1,2,2,NULL,5,5,'2022-01-16 15:00:00',120),
+  (2,3,1,NULL,7,7,'2022-02-12 12:00:00',80),
+  (2,1,1,NULL,1,1,'2022-03-08 17:00:00',60),
+  (1,1,2,NULL,2,2,'2022-04-20 17:30:00',90),
+  (1,2,2,NULL,5,5,'2022-06-16 15:00:00',120),
+  
+  (2,3,3,2,7,7,'2022-01-12 12:00:00',80),
+  (2,1,3,1,1,1,'2022-12-08 17:00:00',60)
+  
+  ;
 
 INSERT INTO rental_item (instrument_id, brand_id, rental_fee)
 VALUES
