@@ -81,4 +81,49 @@ ORDER BY COUNT(school_activity.activity_type_id) DESC
 
 
 
+FOURTH QUERY
+
+SELECT
+	genre_name AS genre,
+	CASE
+		WHEN day = 1 THEN 'monday'
+		WHEN day = 2 THEN 'tuesday'
+		WHEN day = 3 THEN 'wednesday'
+		WHEN day = 4 THEN 'thursday'
+		WHEN day = 5 THEN 'friday'
+		WHEN day = 6 THEN 'saturday'
+		WHEN day = 7 THEN 'sunday'
+	END as day,
+	CASE
+		WHEN spots_left = 0 THEN 'full'
+		WHEN spots_left >= 1 AND spots_left <= 2 THEN 'few'
+		WHEN spots_left >= 3 THEN 'many'
+	END as availability
+FROM(
+	SELECT
+		genre_name,
+		EXTRACT(dow FROM date_and_time) AS day,
+		maximum_students - COUNT (student_id) AS spots_left
+	FROM(
+		SELECT
+			school_activity.school_activity_id,
+			school_activity.genre_id,
+			genre.genre_name,
+			school_activity.date_and_time,
+			activity_type.maximum_students,
+			student_school_activity.student_id
+		FROM school_activity
+			LEFT JOIN activity_type
+				ON school_activity.activity_type_id = activity_type.activity_type_id
+			LEFT JOIN student_school_activity
+				ON school_activity.school_activity_id = student_school_activity.school_activity_id
+			LEFT JOIN genre
+				ON school_activity.genre_id = genre.genre_id
+		WHERE school_activity.activity_type_id = 3 AND EXTRACT(week FROM school_activity.date_and_time) = EXTRACT(week FROM CURRENT_DATE + interval '1 week')
+	) as initial_table
+	GROUP BY day, genre_id, genre_name, maximum_students
+) as refined_table
+
+
+
 
