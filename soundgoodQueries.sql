@@ -13,6 +13,7 @@ SELECT
 		FILTER (WHERE school_activity.activity_type_id = 3)
 		AS ensamble
 FROM school_activity
+WHERE EXTRACT(year FROM school_activity.date_and_time) = 2022
 GROUP BY month_number
 ORDER BY month_number ASC
 
