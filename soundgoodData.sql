@@ -5,7 +5,10 @@ VALUES
   ('elementum','velit.','3-SSN','1-558-361-6443','sed.nulla.ante@protonmail.ca','Ap #487-4886 Enim, St.','805838','Hebei'),
   ('Mauris','nulla.','4-SSN','(608) 841-4398','cras.pellentesque@aol.org','Ap #232-7754 Duis St.','55114','Oslo'),
   ('Proin','massa','5-SSN','(165) 416-8381','elit.pretium@protonmail.ca','1797 Mattis Avenue','74122','Saravena'),
-  ('someContact.','jackville,','6-SSN','(210) 208-8394','jackville@hotmail.couk','616-4225 Mauris Street','85511','Austria');
+  ('someContact.','jackville,','6-SSN','(210) 208-8394','jackville@hotmail.couk','616-4225 Mauris Street','85511','Austria'),
+  ('börje.','johansson','7-SSN','1-945-433-2816','nam.interdum@icloud.org','304-7376 Egestas. Ave','84874','Donetsk'),
+  ('marja','jukkasjärvi.','8-SSN','1-558-361-6443','sed.nulla.ante@protonmail.ca','Ap #487-4886 Enim, St.','805838','Hebei'),
+  ('sten','mittermaier.','9-SSN','(608) 841-4398','cras.pellentesque@aol.org','Ap #232-7754 Duis St.','55114','Oslo');
 
 INSERT INTO instructor (person_id)
 VALUES
@@ -16,13 +19,16 @@ INSERT INTO student (person_id)
 VALUES
   (3),
   (4),
-  (5);
+  (5),
+  (7),
+  (8),
+  (9);
 
 INSERT INTO activity_type (activity_type_name,minimum_students, maximum_students)
 VALUES
   ('individual',1,1),
-  ('group',5,15),
-  ('ensemble',7,12);
+  ('group',3,5),
+  ('ensemble',3,5);
 
 INSERT INTO skill_level (skill_level_name)
 VALUES
@@ -88,7 +94,13 @@ VALUES
 INSERT INTO student_sibling (student_id, sibling_id)
 VALUES
   (1,2),
-  (2,1);
+  (2,1),
+  (4,5),
+  (4,6),
+  (5,4),
+  (5,6),
+  (6,4),
+  (6,5);
 
 INSERT INTO school_activity (instructor_id,skill_level_id,activity_type_id,genre_id,activity_fee_id,instructor_payment_id,date_and_time,duration_in_minutes)
 VALUES
@@ -99,10 +111,14 @@ VALUES
   (1,1,2,NULL,2,2,'2022-04-20 17:30:00',90),
   (1,2,2,NULL,5,5,'2022-06-16 15:00:00',120),
   
-  (2,3,3,2,7,7,'2022-01-12 12:00:00',80),
-  (2,1,3,1,1,1,'2022-12-08 17:00:00',60)
+  (2,3,3,2,7,7,'2022-03-12 12:00:00',80),
   
-  ;
+  (2,1,3,1,1,1,'2022-12-13 17:00:00',60),
+  (2,3,3,3,7,7,'2022-12-14 12:00:00',80),
+  (1,1,3,4,1,1,'2022-12-15 17:00:00',60),
+  (2,3,3,5,7,7,'2022-12-13 12:00:00',80),
+  (2,1,3,2,1,1,'2022-12-12 17:00:00',60),
+  (2,3,3,5,7,7,'2022-12-16 12:00:00',80);
 
 INSERT INTO rental_item (instrument_id, brand_id, rental_fee)
 VALUES
@@ -137,7 +153,22 @@ VALUES
   (2,3),
   (2,1),
   (3,1),
-  (4,3);
+  (4,3),
+  (8,1),
+  (8,2),
+  (8,3),
+  (8,4),
+  (8,5),
+  (9,1),
+  (9,2),
+  (9,3),
+  (9,4),
+  (10,4),
+  (10,5),
+  (10,6),
+  (11,1),
+  (11,2),
+  (12,3);
 
 INSERT INTO instructor_instrument (instrument_id, instructor_id)
 VALUES
