@@ -83,7 +83,6 @@ FROM(
 	FROM(
 		SELECT
 			school_activity.school_activity_id,
-			school_activity.genre_id,
 			genre.genre_name,
 			school_activity.date_and_time,
 			activity_type.maximum_students,
