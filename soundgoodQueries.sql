@@ -46,13 +46,13 @@ FROM(
 THIRD QUERY:
 
 SELECT
-    school_activity.instructor_id,
-    COUNT(school_activity.activity_type_id) as total_lessons
+    instructor_id,
+    COUNT(activity_type_id) as total_lessons
 FROM school_activity
-WHERE EXTRACT (month FROM school_activity.date_and_time) = EXTRACT (month FROM CURRENT_DATE)
-GROUP BY school_activity.instructor_id
-HAVING COUNT(school_activity.activity_type_id) > 2
-ORDER BY COUNT(school_activity.activity_type_id) DESC
+WHERE EXTRACT (month FROM date_and_time) = EXTRACT (month FROM CURRENT_DATE)
+GROUP BY instructor_id
+HAVING COUNT(school_activity_id) > 2
+ORDER BY COUNT(school_activity_id) DESC
 
 
 
