@@ -122,6 +122,7 @@ FROM(
 		WHERE school_activity.activity_type_id = 3 AND EXTRACT(week FROM school_activity.date_and_time) = EXTRACT(week FROM CURRENT_DATE + interval '1 week')
 	) as initial_table
 	GROUP BY day, genre_id, genre_name, maximum_students
+	ORDER BY genre_name, day
 ) as refined_table
 
 
